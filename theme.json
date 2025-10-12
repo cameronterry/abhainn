@@ -68,8 +68,8 @@
       ]
     },
     "layout": {
-      "contentSize": "",
-      "wideSize": ""
+      "contentSize": "40rem",
+      "wideSize": "100rem"
     },
     "typography": {
       "fluid": true,
