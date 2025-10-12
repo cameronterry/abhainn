@@ -118,6 +118,46 @@
     "useRootPaddingAwareAlignments": true
   },
   "styles": {
+    "blocks": {
+      "core/button": {
+        "variations": {
+          "outline": {
+            "border": {
+              "color": "var:preset|color|accent"
+            },
+            "color": {
+              "text": "var:preset|color|accent"
+            }
+          }
+        }
+      },
+      "core/site-title": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|identity"
+        }
+      }
+    },
+    "elements": {
+      "button": {
+        "border": {
+          "radius": 0
+        },
+        "color": {
+          "background": "var:preset|color|accent",
+          "text": "var:preset|color|text-default"
+        },
+        ":hover": {
+          "color": {
+            "background": "var:preset|color|primary-contrast"
+          }
+        }
+      },
+      "h1": {
+        "typography": {
+          "fontFamily": "var:preset|font-family|identity"
+        }
+      }
+    },
     "spacing": {
       "padding": {
         "bottom": 0,
