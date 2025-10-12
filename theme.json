@@ -1,0 +1,128 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "color": {
+      "palette": [
+        {
+          "color": "#0C2C40",
+          "name": "Primary",
+          "slug": "primary"
+        },
+        {
+          "color": "#FFFFFF",
+          "name": "Primary Contrast",
+          "slug": "primary-contrast"
+        },
+        {
+          "color": "#345573",
+          "name": "Secondary",
+          "slug": "secondary"
+        },
+        {
+          "color": "#FFFFFF",
+          "name": "Secondary Contrast",
+          "slug": "secondary-contrast"
+        },
+        {
+          "color": "#728EA6",
+          "name": "Tertiary",
+          "slug": "tertiary"
+        },
+        {
+          "color": "#000000",
+          "name": "Tertiary Contrast",
+          "slug": "tertiary-contrast"
+        },
+        {
+          "color": "#F2D091",
+          "name": "Accent",
+          "slug": "accent"
+        },
+        {
+          "color": "#BF9F78",
+          "name": "Accent (Dark)",
+          "slug": "accent-dark"
+        },
+        {
+          "color": "#000000",
+          "name": "Text",
+          "slug": "text"
+        },
+        {
+          "color": "#FFFFFF",
+          "name": "Background",
+          "slug": "background"
+        },
+        {
+          "color": "#FFFFFF",
+          "name": "Text (Dark)",
+          "slug": "text-dark"
+        },
+        {
+          "color": "#0C2C40",
+          "name": "Background (Dark)",
+          "slug": "background-dark"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "",
+      "wideSize": ""
+    },
+    "typography": {
+      "fluid": true,
+      "fontFamilies": [
+        {
+          "name": "Identity",
+          "slug": "identity",
+          "fontFamily": "'Cal Sans', sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "Cal Sans",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "600",
+              "src": [ "file:./dist/fonts/CalSans-Regular.woff2" ]
+            }
+          ]
+        },
+        {
+          "name": "Primary",
+          "slug": "primary",
+          "fontFamily": "'InterVariable', sans-serif",
+          "fontFace": [
+            {
+              "fontFamily": "InterVariable",
+              "fontStretch": "normal",
+              "fontStyle": "normal",
+              "fontWeight": "100 900",
+              "src": [ "file:./dist/fonts/InterVariable.woff2" ]
+            },
+            {
+              "fontFamily": "InterVariable",
+              "fontStretch": "normal",
+              "fontStyle": "italic",
+              "fontWeight": "100 900",
+              "src": [ "file:./dist/fonts/InterVariable-Italic.woff2" ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "styles": {},
+  "templateParts": [
+    {
+      "area": "header",
+      "name": "header-default",
+      "title": "Header (Default)"
+    },
+    {
+      "area": "footer",
+      "name": "footer-default",
+      "title": "Footer (Default)"
+    }
+  ]
+}
