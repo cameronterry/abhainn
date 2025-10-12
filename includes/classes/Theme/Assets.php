@@ -24,11 +24,21 @@ class Assets implements Registerable {
 	}
 
 	/**
+	 * Add the site style to the CSS.
+	 *
+	 * @return void
+	 */
+	public function editor_styles() {
+		add_editor_style( 'dist/site-style.css' );
+	}
+
+	/**
 	 * Handle actions and filters for enqueuing Assets.
 	 *
 	 * @return void
 	 */
 	public function register() {
+		add_action( 'admin_init', [ $this, 'editor_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'site' ] );
 	}
 

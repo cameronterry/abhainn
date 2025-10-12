@@ -1,5 +1,41 @@
+/**
+ * Improve font/text rendering.
+ */
+:root {
+	font-feature-settings: "kern";
+	font-kerning: normal;
+	text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/**
+ * Resources on prefers-reduced-motion:
+ * https://webkit.org/blog-files/prefers-reduced-motion/prm.htm
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+ */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.001s !important;
+		transition-duration: 0.001s !important;
+	}
+}
+
 body {
 	background-color: var(--wp--preset--color--background);
 	color: var(--wp--preset--color--text);
 	font-family: var(--wp--preset--font-family--primary);
+}
+
+/**
+ * Simplify working with the admin bar.
+ */
+html {
+	height: calc(100% - var(--wp-admin--admin-bar--height, 0px));
 }
