@@ -1,0 +1,19 @@
+{
+    "name": "cameronterry/abhainn",
+    "type": "wpackagist-theme",
+    "license": "GPL-2.0-only",
+    "autoload": {
+        "psr-4": {
+            "Abhainn\\": "includes/classes/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cameron",
+            "email": "cameronterry@protonmail.com"
+        }
+    ],
+    "require": {
+        "spatie/php-structure-discoverer": "^2.3"
+    }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "abhainn",
+  "version": "0.1.0",
+  "description": "T.B.C.",
+  "keywords": [
+    "wordpress",
+    "theme",
+    "news"
+  ],
+  "homepage": "https://github.com/cameronterry/abhainn#readme",
+  "bugs": {
+    "url": "https://github.com/cameronterry/abhainn/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cameronterry/abhainn.git"
+  },
+  "license": "GPL-2.0-only",
+  "author": "Cameron Terry",
+  "scripts": {
+    "build": "NODE_ENV=production askyr-webpack",
+    "build-dev": "NODE_ENV=development askyr-webpack"
+  },
+  "devDependencies": {
+    "@cameronterry/tooling": "github:cameronterry/tooling",
+    "@wordpress/babel-preset-default": "^8.32.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^6.32.0"
+  },
+  "buildEntryPoints": {
+    "wp-blocks": "./includes/blocks",
+    "site-js": "./assets/js/site.js",
+    "site-style": "./assets/css/site.css"
+  }
+}
