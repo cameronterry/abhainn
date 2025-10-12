@@ -4,6 +4,7 @@
   "settings": {
     "appearanceTools": true,
     "color": {
+      "defaultPalette": false,
       "palette": [
         {
           "color": "#0C2C40",
@@ -21,7 +22,7 @@
           "slug": "secondary"
         },
         {
-          "color": "#FFFFFF",
+          "color": "var(--wp--preset--color--primary-contrast)",
           "name": "Secondary Contrast",
           "slug": "secondary-contrast"
         },
@@ -47,16 +48,16 @@
         },
         {
           "color": "#000000",
-          "name": "Text",
-          "slug": "text"
+          "name": "Text (default)",
+          "slug": "text-default"
         },
         {
-          "color": "#FFFFFF",
+          "color": "var(--wp--preset--color--primary-contrast)",
           "name": "Background",
           "slug": "background"
         },
         {
-          "color": "#FFFFFF",
+          "color": "var(--wp--preset--color--primary-contrast)",
           "name": "Text (Dark)",
           "slug": "text-dark"
         },
