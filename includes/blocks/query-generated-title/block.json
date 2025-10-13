@@ -16,6 +16,9 @@
   "supports": {
     "html": false,
     "typography": {
+      "__experimentalFontFamily": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
       "fontSize": true,
       "lineHeight": true,
       "textAlign": true
