@@ -1,6 +1,6 @@
 <?php
 /**
- * Markup for the Example block.
+ * Markup for the Query Generated Title block.
  *
  * @package Teleta
  *
