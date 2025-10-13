@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "slug": "with-arrow",
+  "title": "With Arrow",
+  "blockTypes": [ "core/button" ],
+  "settings": {},
+  "styles": {
+    "color": {
+      "background": "var:preset|color|background",
+      "text": "var:preset|color|primary"
+    },
+    "spacing": {
+      "padding": {
+        "bottom": "0",
+        "left": "0",
+        "right": "0",
+        "top": "0"
+      }
+    }
+  }
+}
