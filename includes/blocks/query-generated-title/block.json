@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Query Loop Generated Title",
+  "description": "Generates a title for a Query Loop block by using Taxonomies.",
+  "textdomain": "abhainn",
+  "name": "abhainn/query-generated-title",
+  "icon": "heading",
+  "category": "formatting",
+  "attributes":{},
+  "supports": {
+    "html": false
+  },
+  "usesContext": [
+    "query"
+  ],
+  "editorScript": "file:./index.js"
+}
