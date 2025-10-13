@@ -1,7 +1,14 @@
 /**
  * WordPress dependencies
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import {
+	AlignmentControl,
+	BlockControls,
+	HeadingLevelDropdown,
+	useBlockProps,
+} from '@wordpress/block-editor';
+import { store as coreStore } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
 
 /**
  * Edit component.
@@ -16,12 +23,49 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @param {Function} props.setAttributes    Sets the value for block attributes.
  * @returns {Function} Render the edit screen
  */
-const QueryGeneratedTitleEdit = (props) => {
+const QueryGeneratedTitleEdit = ( {
+	attributes,
+	context,
+	setAttributes,
+} ) => {
+	const { level } = attributes;
+	const {
+		query: {
+			postType,
+			taxQuery,
+		},
+	} = context;
+	const TagName = level === 0 ? 'p' : `h${ level }`;
+
 	const blockProps = useBlockProps();
 
-	return (
-		<div { ...blockProps }>
-		</div>
-	);
+	const terms = useSelect( ( select ) => {
+		const { getEntityRecords } = select( coreStore );
+
+		const titles = [];
+		Object.keys( taxQuery ).forEach( ( taxonomy ) => {
+			const terms = getEntityRecords( 'taxonomy', taxonomy, {
+				include: taxQuery[taxonomy],
+			} );
+			Array.isArray( terms ) && terms.forEach( ( { link, name } ) => titles.push( {
+				link,
+				name,
+			} ) );
+		} );
+
+		return titles;
+	} );
+
+	return <>
+		<BlockControls>
+			<HeadingLevelDropdown
+				onChange={ ( newLevel ) => setAttributes( { level: newLevel } ) }
+				value={ level }
+			/>
+		</BlockControls>
+		<TagName { ...blockProps }>
+			{ terms.map( ( { name } ) => name ).join( ', ' ) }
+		</TagName>
+	</>;
 };
 export default QueryGeneratedTitleEdit;

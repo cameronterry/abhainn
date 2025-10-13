@@ -7,9 +7,19 @@
   "name": "abhainn/query-generated-title",
   "icon": "heading",
   "category": "formatting",
-  "attributes":{},
+  "attributes":{
+    "level": {
+      "type": "number",
+      "default": 2
+    }
+  },
   "supports": {
-    "html": false
+    "html": false,
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "textAlign": true
+    }
   },
   "usesContext": [
     "query"
