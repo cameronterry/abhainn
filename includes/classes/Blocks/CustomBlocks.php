@@ -29,12 +29,12 @@ class CustomBlocks implements Registerable {
 	 * @return void
 	 */
 	public function custom_blocks() {
-		$base_dir = ABHAINN_INC . '/includes/';
+		$base_dir = ABHAINN_PATH . 'includes/';
 
-		$blocks = glob( ABHAINN_PATH . '/dist/blocks/**/block.json' );
+		$blocks = glob( ABHAINN_PATH . 'dist/blocks/**/block.json' );
 		foreach ( $blocks as $block_json ) {
 			$args       = [];
-			$block_name = str_replace( ABHAINN_PATH . '/dist/', '', dirname( $block_json ) );
+			$block_name = str_replace( ABHAINN_PATH . 'dist/', '', dirname( $block_json ) );
 
 			/**
 			 * We hook up with the `markup.php` file in the `includes/blocks/[name]/markup.php` directory, and not in
