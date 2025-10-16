@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import {
-	AlignmentControl,
 	BlockControls,
 	HeadingLevelDropdown,
 	useBlockProps,

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Carousel",
+  "description": "Display a range of content within a carousel.",
+  "textdomain": "abhainn",
+  "name": "abhainn/carousel",
+  "icon": "slides",
+  "category": "formatting",
+  "supports": {
+    "html": false
+  },
+  "editorScript": "file:./index.js",
+  "viewScript": "file:./viewScript.js",
+  "viewStyle": "file:./view.css"
+}

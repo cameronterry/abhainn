@@ -2,7 +2,7 @@
 /**
  * Markup for the Query Generated Title block.
  *
- * @package Teleta
+ * @package Abhainn
  *
  * @var array     $attributes Block attributes.
  * @var string    $content    Content within the block, such as `<InnerBlocks />`.
