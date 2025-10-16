@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Carousel Item",
+  "description": "Item to be used with a Carousel.",
+  "textdomain": "abhainn",
+  "name": "abhainn/carousel-item",
+  "icon": "slides",
+  "category": "formatting",
+  "supports": {
+    "html": false
+  },
+  "parent": [ "abhainn/carousel" ],
+  "editorScript": "file:./index.js"
+}
