@@ -32,13 +32,14 @@ $wrapper_attributes = [
 		<?php echo esc_html( $attributes['title'] ); ?>
 	</h2>
 
-	<div class="carousel">
-		<div class="carousel__slide">Slide 1</div>
-		<div class="carousel__slide">Slide 2</div>
-		<div class="carousel__slide">Slide 3</div>
-		<div class="carousel__slide">Slide 4</div>
+	<button aria-label="<?php esc_attr_e( 'Previous slide', 'abhainn' ); ?>" class="carousel__button.previous" data-action="previous">❮</button>
+
+	<div class="carousel" aria-live="polite">
+		<div class="carousel__slide" aria-hidden="false">Slide 1</div>
+		<div class="carousel__slide" aria-hidden="true">Slide 2</div>
+		<div class="carousel__slide" aria-hidden="true">Slide 3</div>
+		<div class="carousel__slide" aria-hidden="true">Slide 4</div>
 	</div>
 
-	<button class="carousel__button.previous" data-action="previous">❮</button>
-	<button class="carousel__button.next" data-action="next">❯</button>
+	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="carousel__button.next" data-action="next">❯</button>
 </div>

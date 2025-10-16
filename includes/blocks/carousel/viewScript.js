@@ -6,8 +6,9 @@
 		}
 
 		const carousel = block.querySelector( '.carousel' );
-		const slideElement = block.querySelector( `div.carousel__slide:nth-child(${slide})` );
-		if ( ! carousel || ! slideElement ) {
+		const currentSlide = block.querySelector( `div.carousel__slide:nth-child(${current})` );
+		const newSlide = block.querySelector( `div.carousel__slide:nth-child(${slide})` );
+		if ( ! carousel || ! currentSlide || ! newSlide ) {
 			return;
 		}
 
@@ -15,8 +16,14 @@
 
 		carousel.scrollTo( {
 			behavior: 'smooth',
-			left: slideElement.offsetLeft,
+			left: newSlide.offsetLeft,
 		} );
+
+		/**
+		 * Update the aria-hidden values.
+		 */
+		currentSlide.setAttribute( 'aria-hidden', 'true' );
+		newSlide.setAttribute( 'aria-hidden', 'false' );
 	};
 
 	const carouselBlocks = document.querySelectorAll( '.wp-block-abhainn-carousel' );
