@@ -16,12 +16,14 @@ if ( ! $block instanceof WP_Block ) {
 $attributes = wp_parse_args(
 	$attributes,
 	[
-		'title' => '',
+		'title' => __( 'Carousel', 'abhainn' ),
 	]
 );
 
 $wrapper_attributes = [
 	'aria-labelledby' => wp_unique_id( 'abainn-carousel--' ),
+	'data-current'    => 1,
+	'data-total'      => 4,
 ];
 
 ?>
@@ -37,6 +39,6 @@ $wrapper_attributes = [
 		<div class="carousel__slide">Slide 4</div>
 	</div>
 
-	<button class="carousel__button.previous">❮</button>
-	<button class="carousel__button.next">❯</button>
+	<button class="carousel__button.previous" data-action="previous">❮</button>
+	<button class="carousel__button.next" data-action="next">❯</button>
 </div>
