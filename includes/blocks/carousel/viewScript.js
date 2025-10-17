@@ -31,25 +31,33 @@
 		return;
 	}
 
+	const hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+
 	carouselBlocks.forEach( ( block ) => {
 		const slidesTotal = block.querySelector( '.carousel' )?.children?.length ?? 0;
 		if ( 0 === slidesTotal ) {
 			return;
 		}
 
-		const timer = Math.min( parseInt( block?.dataset?.timer ?? 0, 10 ), 60 );
-
 		let interval = null;
-		if ( timer > 0 ) {
-			interval = setInterval( () => {
-				const current = parseInt( block?.dataset?.current ?? 1, 10 );
 
-				if ( current === slidesTotal ) {
-					carouselBlockChangeSlide( block, 1 );
-				} else {
-					carouselBlockChangeSlide( block, current + 1 );
-				}
-			}, timer * 1000 );
+		/**
+		 * Don't animate for those who prefer reduced motion.
+		 */
+		if ( ! hasReducedMotion ) {
+			const timer = Math.min( parseInt( block?.dataset?.timer ?? 0, 10 ), 60 );
+
+			if ( timer > 0 ) {
+				interval = setInterval( () => {
+					const current = parseInt( block?.dataset?.current ?? 1, 10 );
+
+					if ( current === slidesTotal ) {
+						carouselBlockChangeSlide( block, 1 );
+					} else {
+						carouselBlockChangeSlide( block, current + 1 );
+					}
+				}, timer * 1000 );
+			}
 		}
 
 		block.addEventListener( 'click', ( { target } ) => {
