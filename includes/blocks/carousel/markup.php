@@ -33,7 +33,7 @@ if ( $attributes['hideScrollbar'] ) {
 	$wrapper_attributes['class'] = 'no-scrollbar';
 }
 
-$timer = max( absint( $attributes['timer'] ), 60 );
+$timer = min( absint( $attributes['timer'] ), 60 );
 if ( ! empty( $timer ) ) {
 	$wrapper_attributes['data-timer'] = $timer;
 }
@@ -44,7 +44,7 @@ if ( ! empty( $timer ) ) {
 		<?php echo esc_html( $attributes['title'] ); ?>
 	</h2>
 
-	<button aria-label="<?php esc_attr_e( 'Previous slide', 'abhainn' ); ?>" class="carousel__button.previous" data-action="previous">❮</button>
+	<button aria-label="<?php esc_attr_e( 'Previous slide', 'abhainn' ); ?>" class="carousel__button previous" data-action="previous">❮</button>
 
 	<div class="carousel" aria-live="polite">
 		<?php
@@ -56,7 +56,7 @@ if ( ! empty( $timer ) ) {
 		?>
 	</div>
 
-	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="carousel__button.next" data-action="next">❯</button>
+	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="carousel__button next" data-action="next">❯</button>
 
 	<?php if ( $attributes['sliderButtons'] ) : ?>
 	<?php endif; ?>
