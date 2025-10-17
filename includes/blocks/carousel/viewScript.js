@@ -32,9 +32,13 @@
 	}
 
 	carouselBlocks.forEach( ( block ) => {
+		const slidesTotal = block.querySelector( '.carousel' )?.children?.length ?? 0;
+		if ( 0 === slidesTotal ) {
+			return;
+		}
+
 		block.addEventListener( 'click', ( { target } ) => {
 			const current = parseInt( block?.dataset?.current ?? 1, 10 );
-			const total = parseInt( block.dataset.total, 10 );
 
 			if ( ! target.dataset.action ) {
 				return;
@@ -43,7 +47,7 @@
 			if ( 'first' === target.dataset.action ) {
 				carouselBlockChangeSlide( block, 1 );
 			} else if ( 'last' === target.dataset.action ) {
-				carouselBlockChangeSlide( block, total );
+				carouselBlockChangeSlide( block, slidesTotal );
 			} else if ( 'next' === target.dataset.action ) {
 				carouselBlockChangeSlide( block, current + 1 );
 			} else if ( 'previous' === target.dataset.action ) {

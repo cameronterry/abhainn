@@ -26,7 +26,6 @@ $attributes = wp_parse_args(
 $wrapper_attributes = [
 	'aria-labelledby' => wp_unique_id( 'abainn-carousel--' ),
 	'data-current'    => 1,
-	'data-total'      => 4,
 ];
 
 if ( $attributes['hideScrollbar'] ) {
