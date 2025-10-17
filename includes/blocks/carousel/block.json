@@ -8,8 +8,10 @@
   "icon": "slides",
   "category": "formatting",
   "supports": {
+    "align": true,
     "html": false
   },
+  "editorStyle": "file:./edit.css",
   "editorScript": "file:./index.js",
   "viewScript": "file:./viewScript.js",
   "viewStyle": "file:./view.css"

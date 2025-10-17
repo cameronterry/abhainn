@@ -24,7 +24,8 @@
   "devDependencies": {
     "@cameronterry/tooling": "github:cameronterry/tooling",
     "@wordpress/babel-preset-default": "^8.32.0",
-    "@wordpress/dependency-extraction-webpack-plugin": "^6.32.0"
+    "@wordpress/dependency-extraction-webpack-plugin": "^6.32.0",
+    "@wordpress/icons": "^10.32.0"
   },
   "buildEntryPoints": {
     "wp-blocks": "./includes/blocks",

@@ -35,10 +35,13 @@ $wrapper_attributes = [
 	<button aria-label="<?php esc_attr_e( 'Previous slide', 'abhainn' ); ?>" class="carousel__button.previous" data-action="previous">❮</button>
 
 	<div class="carousel" aria-live="polite">
-		<div class="carousel__slide" aria-hidden="false">Slide 1</div>
-		<div class="carousel__slide" aria-hidden="true">Slide 2</div>
-		<div class="carousel__slide" aria-hidden="true">Slide 3</div>
-		<div class="carousel__slide" aria-hidden="true">Slide 4</div>
+		<?php
+		/**
+		 * As this block uses `<InnerBlocks />` in the editor, the content is essentially equivalent to `the_content`.
+		 * Therefore, `wp_kses_post()`, would likely lead to breakages and other undesirable issues.
+		 */
+		echo $content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		?>
 	</div>
 
 	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="carousel__button.next" data-action="next">❯</button>
