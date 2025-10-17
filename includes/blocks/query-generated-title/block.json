@@ -6,7 +6,7 @@
   "textdomain": "abhainn",
   "name": "abhainn/query-generated-title",
   "icon": "heading",
-  "category": "formatting",
+  "category": "theme",
   "attributes":{
     "level": {
       "type": "number",
