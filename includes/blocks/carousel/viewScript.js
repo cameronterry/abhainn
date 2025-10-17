@@ -37,11 +37,30 @@
 			return;
 		}
 
+		const timer = Math.min( parseInt( block?.dataset?.timer ?? 0, 10 ), 60 );
+
+		let interval = null;
+		if ( timer > 0 ) {
+			interval = setInterval( () => {
+				const current = parseInt( block?.dataset?.current ?? 1, 10 );
+
+				if ( current === slidesTotal ) {
+					carouselBlockChangeSlide( block, 1 );
+				} else {
+					carouselBlockChangeSlide( block, current + 1 );
+				}
+			}, timer * 1000 );
+		}
+
 		block.addEventListener( 'click', ( { target } ) => {
 			const current = parseInt( block?.dataset?.current ?? 1, 10 );
 
 			if ( ! target.dataset.action ) {
 				return;
+			}
+
+			if ( interval ) {
+				clearInterval( interval );
 			}
 
 			if ( 'first' === target.dataset.action ) {
