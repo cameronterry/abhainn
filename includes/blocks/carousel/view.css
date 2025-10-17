@@ -3,6 +3,7 @@
 	overflow: hidden;
 
 	& .carousel {
+		align-items: center;
 		display: flex;
 		overflow-x: auto;
 		scroll-snap-type: x mandatory;
