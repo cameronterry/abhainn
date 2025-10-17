@@ -1,20 +1,42 @@
 /**
  * WordPress dependencies.
  */
+import { createBlock } from '@wordpress/blocks';
 import {
 	BlockControls,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
-import { ToolbarDropdownMenu } from '@wordpress/components';
-import { useSelect } from '@wordpress/data';
+import {
+	ToolbarButton,
+	ToolbarDropdownMenu,
+} from '@wordpress/components';
+import { useDispatch, useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
-import { gallery, image } from '@wordpress/icons';
+import {
+	addCard,
+	gallery,
+	image,
+} from '@wordpress/icons';
 import { __, sprintf } from '@wordpress/i18n';
 
 const CarouselBlockControls = ( { clientId, onChooseSlide } ) => {
-	const slides = useSelect( ( select ) =>
-		select( blockEditorStore ).getBlock( clientId )?.innerBlocks.filter( ( { name } ) => 'abhainn/carousel-item' === name ) ?? []
-	);
+	const {
+		slideCount,
+		slides,
+	} = useSelect( ( select ) => {
+		const innerBlocks = select( blockEditorStore ).getBlock( clientId )?.innerBlocks ?? [];
+
+		return {
+			slideCount: innerBlocks.length,
+			slides: innerBlocks.filter( ( { name } ) => 'abhainn/carousel-item' === name ),
+		};
+	} );
+	const { insertBlock } = useDispatch( blockEditorStore );
+
+	const addSlide = () => {
+		const block = createBlock( 'abhainn/carousel-item' );
+		insertBlock( block, slideCount, clientId );
+	};
 
 	const slideControls = useMemo( () => {
 		const controls = [];
@@ -37,6 +59,11 @@ const CarouselBlockControls = ( { clientId, onChooseSlide } ) => {
 			icon={ gallery }
 			label={ __( 'Select a Slide', 'abhainn' ) }
 			controls={ slideControls }
+		/>
+		<ToolbarButton
+			icon={ addCard }
+			label={ __( 'Add Slide', 'abhainn' ) }
+			onClick={ addSlide }
 		/>
 	</BlockControls>
 };

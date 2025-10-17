@@ -2,11 +2,10 @@
  * WordPress dependencies.
  */
 import {
-	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
 } from '@wordpress/block-editor';
-import { useRef, useState } from '@wordpress/element';
+import { useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -53,6 +52,7 @@ const CarouselEdit = ( { clientId } ) => {
 	}, {
 		defaultBlock: DEFAULT_BLOCK,
 		directInsert: true,
+		renderAppender: false,
 	} );
 
 	const handleChooseSlide = ( slide ) => {
