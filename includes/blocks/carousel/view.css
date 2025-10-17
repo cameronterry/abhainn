@@ -35,4 +35,11 @@
 		position: relative;
 		scroll-snap-align: start;
 	}
+
+	&.no-scrollbar {
+
+		& .carousel {
+			scrollbar-width: none;
+		}
+	}
 }

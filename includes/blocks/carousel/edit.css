@@ -1,4 +1,0 @@
-/**
- * This should never be enqueued on the frontend, but just in case ...
- */
-@import './view.css';

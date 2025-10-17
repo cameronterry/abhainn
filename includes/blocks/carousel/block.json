@@ -6,12 +6,27 @@
   "textdomain": "abhainn",
   "name": "abhainn/carousel",
   "icon": "slides",
-  "category": "formatting",
+  "category": "media",
+  "keywords": [ "gallery", "images", "slider" ],
   "supports": {
     "align": true,
     "html": false
   },
-  "editorStyle": "file:./edit.css",
+  "attributes": {
+    "hideScrollbar": {
+      "default": false,
+      "type": "boolean"
+    },
+    "sliderButtons": {
+      "default": false,
+      "type": "boolean"
+    },
+    "timer": {
+      "default": 0,
+      "type": "integer"
+    }
+  },
+  "editorStyle": "file:./view.css",
   "editorScript": "file:./index.js",
   "viewScript": "file:./viewScript.js",
   "viewStyle": "file:./view.css"

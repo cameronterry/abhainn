@@ -6,7 +6,7 @@
   "textdomain": "abhainn",
   "name": "abhainn/carousel-item",
   "icon": "slides",
-  "category": "formatting",
+  "category": "media",
   "supports": {
     "html": false
   },

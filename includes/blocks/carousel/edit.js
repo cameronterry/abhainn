@@ -12,6 +12,7 @@ import { __ } from '@wordpress/i18n';
  * Internal dependencies.
  */
 import CarouselBlockControls from './block-controls';
+import CarouselInspectorControls from './inspector-controls';
 
 /**
  * Constants
@@ -42,7 +43,7 @@ const DEFAULT_BLOCK = {
  * @param {Function} props.setAttributes    Sets the value for block attributes.
  * @returns {Function} Render the edit screen
  */
-const CarouselEdit = ( { clientId } ) => {
+const CarouselEdit = ( { attributes, clientId, setAttributes } ) => {
 	const blockProps = useBlockProps();
 
 	const carouselRef = useRef( null );
@@ -65,6 +66,11 @@ const CarouselEdit = ( { clientId } ) => {
 		<CarouselBlockControls
 			clientId={ clientId }
 			onChooseSlide={ handleChooseSlide }
+		/>
+
+		<CarouselInspectorControls
+			attributes={ attributes }
+			setAttribute={ setAttributes }
 		/>
 
 		<div { ...innerBlocksProps } />

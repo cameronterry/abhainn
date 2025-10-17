@@ -16,7 +16,10 @@ if ( ! $block instanceof WP_Block ) {
 $attributes = wp_parse_args(
 	$attributes,
 	[
-		'title' => __( 'Carousel', 'abhainn' ),
+		'hideScrollbar' => false,
+		'sliderButtons' => false,
+		'timer'         => 0,
+		'title'         => __( 'Carousel', 'abhainn' ),
 	]
 );
 
@@ -25,6 +28,15 @@ $wrapper_attributes = [
 	'data-current'    => 1,
 	'data-total'      => 4,
 ];
+
+if ( $attributes['hideScrollbar'] ) {
+	$wrapper_attributes['class'] = 'no-scrollbar';
+}
+
+$timer = max( absint( $attributes['timer'] ), 60 );
+if ( ! empty( $timer ) ) {
+	$wrapper_attributes['data-timer'] = $timer;
+}
 
 ?>
 <div <?php echo get_block_wrapper_attributes( $wrapper_attributes ); ?>>
@@ -45,4 +57,7 @@ $wrapper_attributes = [
 	</div>
 
 	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="carousel__button.next" data-action="next">❯</button>
+
+	<?php if ( $attributes['sliderButtons'] ) : ?>
+	<?php endif; ?>
 </div>
