@@ -1,6 +1,5 @@
 .wp-block-abhainn-carousel {
 	position: relative;
-	width: 100%;
 	overflow: hidden;
 
 	& .carousel {

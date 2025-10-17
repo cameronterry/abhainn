@@ -17,7 +17,9 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
  * @returns {Function} Render the edit screen
  */
 const CarouselItemEdit = () => {
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps( {
+		className: 'carousel__slide',
+	} );
 
 	/**
 	 * Note: perhaps not entirely advisable, but basically a slide can be any collection of blocks.

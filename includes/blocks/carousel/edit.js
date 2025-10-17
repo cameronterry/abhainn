@@ -4,7 +4,9 @@
 import {
 	InnerBlocks,
 	useBlockProps,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
+import { useRef, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -44,13 +46,28 @@ const DEFAULT_BLOCK = {
 const CarouselEdit = ( { clientId } ) => {
 	const blockProps = useBlockProps();
 
-	return <div { ...blockProps }>
-		<CarouselBlockControls clientId={ clientId } />
+	const carouselRef = useRef( null );
+	const innerBlocksProps = useInnerBlocksProps( {
+		className: 'carousel',
+		ref: carouselRef,
+	}, {
+		defaultBlock: DEFAULT_BLOCK,
+		directInsert: true,
+	} );
 
-		<InnerBlocks
-			defaultBlock={ DEFAULT_BLOCK }
-			directInsert
+	const handleChooseSlide = ( slide ) => {
+		carouselRef.current.scrollTo( {
+			left: carouselRef.current.offsetWidth * slide,
+		} );
+	};
+
+	return <div { ...blockProps }>
+		<CarouselBlockControls
+			clientId={ clientId }
+			onChooseSlide={ handleChooseSlide }
 		/>
+
+		<div { ...innerBlocksProps } />
 	</div>;
 };
 
