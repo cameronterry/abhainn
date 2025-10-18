@@ -84,6 +84,7 @@
           "fontFamily": "'Cal Sans', sans-serif",
           "fontFace": [
             {
+              "fontDisplay": "swap",
               "fontFamily": "Cal Sans",
               "fontStretch": "normal",
               "fontStyle": "normal",
@@ -98,6 +99,7 @@
           "fontFamily": "'InterVariable', sans-serif",
           "fontFace": [
             {
+              "fontDisplay": "swap",
               "fontFamily": "InterVariable",
               "fontStretch": "normal",
               "fontStyle": "normal",
@@ -105,6 +107,7 @@
               "src": [ "file:./dist/fonts/InterVariable.woff2" ]
             },
             {
+              "fontDisplay": "swap",
               "fontFamily": "InterVariable",
               "fontStretch": "normal",
               "fontStyle": "italic",

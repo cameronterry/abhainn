@@ -33,6 +33,30 @@ class Assets implements Registerable {
 	}
 
 	/**
+	 * Add preload tags for the theme's fonts.
+	 *
+	 * @return void
+	 */
+	public function preload_fonts() {
+		$font_families = \WP_Font_Face_Resolver::get_fonts_from_theme_json();
+
+		foreach ( $font_families as $fonts ) {
+			foreach ( $fonts as $font ) {
+				if ( empty( $font['src'] ) ) {
+					continue;
+				}
+
+				foreach ( $font['src'] as $src ) {
+					echo sprintf(
+						'<link rel="preload" href="%s" as="font" crossorigin />' . PHP_EOL,
+						$src
+					);
+				}
+			}
+		}
+	}
+
+	/**
 	 * Preload important CSS.
 	 *
 	 * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload
@@ -62,6 +86,7 @@ class Assets implements Registerable {
 	public function register() {
 		add_action( 'admin_init', [ $this, 'editor_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'site' ] );
+		add_action( 'wp_head', [ $this, 'preload_fonts' ], 5 );
 
 		add_filter( 'style_loader_tag', [ $this, 'preload_styles' ], 10, 4 );
 	}
