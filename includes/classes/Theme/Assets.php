@@ -41,12 +41,14 @@ class Assets implements Registerable {
 	 * @param string $handle The style handle name from `wp_enqueue_style` or `wp_register_style()`.
 	 * @return string
 	 */
-	public function preload_styles( $tag, $handle ) {
+	public function preload_styles( $tag, $handle, $href, $media ) {
 		if ( 'abhainn-site-styles' === $handle ) {
-			/**
-			 * Note: WordPress Core uses single quotes for the `rel=""` value instead of double-quotes.
-			 */
-			return str_ireplace( 'rel=\'stylesheet\'', 'rel="preload" as="style"', $tag );
+			return sprintf(
+				'<link rel="preload" id="%s" href="%s" as="style" media="%s" />',
+				$handle,
+				$href,
+				$media
+			) . $tag;
 		}
 
 		return $tag;
@@ -61,7 +63,7 @@ class Assets implements Registerable {
 		add_action( 'admin_init', [ $this, 'editor_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'site' ] );
 
-		add_filter( 'style_loader_tag', [ $this, 'preload_styles' ], 10, 2 );
+		add_filter( 'style_loader_tag', [ $this, 'preload_styles' ], 10, 4 );
 	}
 
 	/**
