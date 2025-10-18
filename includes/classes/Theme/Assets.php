@@ -33,6 +33,26 @@ class Assets implements Registerable {
 	}
 
 	/**
+	 * Preload important CSS.
+	 *
+	 * @link https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/preload
+	 *
+	 * @param string $tag    The HTML fragment for the `<link />` tag with the stylesheet.
+	 * @param string $handle The style handle name from `wp_enqueue_style` or `wp_register_style()`.
+	 * @return string
+	 */
+	public function preload_styles( $tag, $handle ) {
+		if ( 'abhainn-site-styles' === $handle ) {
+			/**
+			 * Note: WordPress Core uses single quotes for the `rel=""` value instead of double-quotes.
+			 */
+			return str_ireplace( 'rel=\'stylesheet\'', 'rel="preload" as="style"', $tag );
+		}
+
+		return $tag;
+	}
+
+	/**
 	 * Handle actions and filters for enqueuing Assets.
 	 *
 	 * @return void
@@ -40,6 +60,8 @@ class Assets implements Registerable {
 	public function register() {
 		add_action( 'admin_init', [ $this, 'editor_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'site' ] );
+
+		add_filter( 'style_loader_tag', [ $this, 'preload_styles' ], 10, 2 );
 	}
 
 	/**
@@ -56,7 +78,7 @@ class Assets implements Registerable {
 		$deps = require $path;
 
 		wp_enqueue_script(
-			'abhainn-site-js',
+			'abhainn-site-scripts',
 			ABHAINN_URI . '/dist/site-js.js',
 			$deps['dependencies'],
 			$deps['version'],
@@ -67,7 +89,7 @@ class Assets implements Registerable {
 		);
 
 		wp_enqueue_style(
-			'abhainn-site-css',
+			'abhainn-site-styles',
 			ABHAINN_URI . '/dist/site-style.css',
 			[],
 			$deps['version']
