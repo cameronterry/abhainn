@@ -1,3 +1,8 @@
+@keyframes abhainnProgressBar {
+	0% { width: 0; }
+	100% { width: 100%; }
+}
+
 .wp-block-abhainn-carousel {
 	position: relative;
 	overflow: hidden;
@@ -50,6 +55,7 @@
 		margin-inline: auto;
 		position: absolute;
 		right: 0;
+		max-width: 50%;
 		width: fit-content;
 
 		& input[type="radio"] {
@@ -72,6 +78,30 @@
 				height: 20px;
 				opacity: .5;
 				width: 20px;
+			}
+		}
+
+		&.is-style-progress input[type="radio"] {
+
+			&:checked + label {
+
+				&::after {
+					animation: abhainnProgressBar var(--abhainn-progress-duration) linear;
+					animation-fill-mode: both;
+					background-color: var(--wp--preset--color--accent);
+					content: " ";
+					display: block;
+					height: 100%;
+				}
+			}
+
+			& + label {
+				background-color: var(--wp--preset--color--text-default);
+				border: none;
+				display: inline-block;
+				height: 5px;
+				position: relative;
+				width: 50px;
 			}
 		}
 	}

@@ -24,6 +24,27 @@
 		 */
 		currentSlide.setAttribute( 'aria-hidden', 'true' );
 		newSlide.setAttribute( 'aria-hidden', 'false' );
+
+		/**
+		 * Update any elements used to point to a specific slide, such as the radio boxes used for the Scroll Markers.
+		 */
+		const currentTargets = block.querySelectorAll( `[data-action="${current}"]` );
+		currentTargets.forEach( ( element ) => {
+			if ( element?.type && 'radio' === element.type.toLowerCase() ) {
+				element.removeAttribute( 'checked' );
+			} else {
+				element.classList.remove( 'is-active' );
+			}
+		} );
+
+		const newTargets = block.querySelectorAll( `[data-action="${slide}"]` );
+		newTargets.forEach( ( element ) => {
+			if ( element?.type && 'radio' === element.type.toLowerCase() ) {
+				element.setAttribute( 'checked', 'checked' );
+			} else {
+				element.classList.add( 'is-active' );
+			}
+		} );
 	};
 
 	const carouselBlocks = document.querySelectorAll( '.wp-block-abhainn-carousel' );
