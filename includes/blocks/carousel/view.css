@@ -2,6 +2,13 @@
 	position: relative;
 	overflow: hidden;
 
+	&.no-scrollbar {
+
+		& .carousel {
+			scrollbar-width: none;
+		}
+	}
+
 	& .carousel {
 		align-items: center;
 		display: flex;
@@ -37,10 +44,35 @@
 		scroll-snap-align: start;
 	}
 
-	&.no-scrollbar {
+	& .scroll-markers {
+		bottom: 10px;
+		left: 0;
+		margin-inline: auto;
+		position: absolute;
+		right: 0;
+		width: fit-content;
 
-		& .carousel {
-			scrollbar-width: none;
+		& input[type="radio"] {
+			display: none;
+			transition: all .3s;
+		}
+
+		&.is-style-dots input[type="radio"] {
+
+			&:checked + label {
+				background-color: var(--wp--preset--color--primary);
+				opacity: 1;
+			}
+
+			& + label {
+				background-color: var(--wp--preset--color--text-default);
+				border: none;
+				border-radius: 50%;
+				display: inline-block;
+				height: 20px;
+				opacity: .5;
+				width: 20px;
+			}
 		}
 	}
 }

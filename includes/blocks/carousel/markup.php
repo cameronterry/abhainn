@@ -17,11 +17,15 @@ $attributes = wp_parse_args(
 	$attributes,
 	[
 		'hideScrollbar' => false,
-		'sliderButtons' => false,
+		'scrollMarkers' => false,
 		'timer'         => 0,
 		'title'         => __( 'Carousel', 'abhainn' ),
 	]
 );
+
+$class_names = [];
+
+$slide_count = $block->inner_blocks->count();
 
 $wrapper_attributes = [
 	'aria-labelledby' => wp_unique_id( 'abainn-carousel--' ),
@@ -29,13 +33,16 @@ $wrapper_attributes = [
 ];
 
 if ( $attributes['hideScrollbar'] ) {
-	$wrapper_attributes['class'] = 'no-scrollbar';
+	$class_names[] = 'no-scrollbar';
 }
 
 $timer = min( absint( $attributes['timer'] ), 60 );
 if ( ! empty( $timer ) ) {
+	$class_names[]                    = 'has-timer';
 	$wrapper_attributes['data-timer'] = $timer;
 }
+
+$wrapper_attributes['class'] = implode( ' ', $class_names );
 
 ?>
 <div <?php echo get_block_wrapper_attributes( $wrapper_attributes ); ?>>
@@ -57,6 +64,27 @@ if ( ! empty( $timer ) ) {
 
 	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="carousel__button next" data-action="next">❯</button>
 
-	<?php if ( $attributes['sliderButtons'] ) : ?>
+	<?php if ( $attributes['scrollMarkers'] ) : ?>
+		<div class="scroll-markers is-style-dots">
+			<?php
+			for ( $i = 0; $i < $slide_count; $i++ ) :
+				$slide_radio_id = wp_unique_id( $wrapper_attributes['aria-labelledby'] . '--slide-' );
+				?>
+				<input name="<?php echo esc_attr( $wrapper_attributes['aria-labelledby'] . '--toggle' ); ?>" id="<?php echo esc_attr( $slide_radio_id ); ?>" <?php checked( $i, 0 ); ?> data-action="<?php echo esc_attr( $i + 1 ); ?>" type="radio" value="<?php echo esc_attr( $i ); ?>" />
+				<label for="<?php echo esc_attr( $slide_radio_id ); ?>">
+					<span class="visually-hidden">
+						<?php
+						echo esc_html(
+							sprintf(
+							/* translators: %d: Slide number. */
+								__( 'Show slide %d', 'abhainn' ),
+								$i
+							)
+						);
+						?>
+					</span>
+				</label>
+			<?php endfor; ?>
+		</div>
 	<?php endif; ?>
 </div>

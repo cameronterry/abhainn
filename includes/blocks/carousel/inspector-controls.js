@@ -10,7 +10,7 @@ import {
 import { __ } from '@wordpress/i18n';
 
 const CarouselInspectorControls = ( { attributes, setAttribute } ) => {
-	const { hideScrollbar, sliderButtons, timer } = attributes;
+	const { hideScrollbar, scrollMarkers, timer } = attributes;
 
 	return <InspectorControls>
 		<PanelBody title={ __( 'Carousel Settings', 'abhainn' ) }>
@@ -23,10 +23,10 @@ const CarouselInspectorControls = ( { attributes, setAttribute } ) => {
 			/>
 			<ToggleControl
 				__nextHasNoMarginBottom
-				checked={ sliderButtons }
+				checked={ scrollMarkers }
 				help={ __( 'Provides a UI at the bottom of the carousel to choose a specific slide.', 'abhainn' ) }
 				label={ __( 'Show Slider Buttons', 'abhainn' ) }
-				onChange={ ( value ) => setAttribute( { sliderButtons: value } ) }
+				onChange={ ( value ) => setAttribute( { scrollMarkers: value } ) }
 			/>
 			<RangeControl
 				__nextHasNoMarginBottom

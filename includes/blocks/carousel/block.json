@@ -17,7 +17,7 @@
       "default": false,
       "type": "boolean"
     },
-    "sliderButtons": {
+    "scrollMarkers": {
       "default": false,
       "type": "boolean"
     },
