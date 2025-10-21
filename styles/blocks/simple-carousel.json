@@ -1,0 +1,11 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "slug": "simple-carousel",
+  "title": "Carousel (simple)",
+  "blockTypes": [ "core/columns", "core/group" ],
+  "settings": {},
+  "styles": {
+    "css": "> * { margin-block-start: 0; scroll-snap-align: center; }"
+  }
+}
