@@ -1,6 +1,6 @@
 <?php
 /**
- * Markup for the Query Generated Title block.
+ * Markup for the Slider block.
  *
  * @package Abhainn
  *
@@ -19,7 +19,7 @@ $attributes = wp_parse_args(
 		'hideScrollbar' => false,
 		'scrollMarkers' => false,
 		'timer'         => 0,
-		'title'         => __( 'Carousel', 'abhainn' ),
+		'title'         => __( 'Slider', 'abhainn' ),
 	]
 );
 
@@ -28,7 +28,7 @@ $class_names = [];
 $slide_count = $block->inner_blocks->count();
 
 $wrapper_attributes = [
-	'aria-labelledby' => wp_unique_id( 'abainn-carousel--' ),
+	'aria-labelledby' => wp_unique_id( 'abainn-slider--' ),
 	'data-current'    => 1,
 ];
 
@@ -50,9 +50,9 @@ $wrapper_attributes['class'] = implode( ' ', $class_names );
 		<?php echo esc_html( $attributes['title'] ); ?>
 	</h2>
 
-	<button aria-label="<?php esc_attr_e( 'Previous slide', 'abhainn' ); ?>" class="carousel__button previous" data-action="previous">❮</button>
+	<button aria-label="<?php esc_attr_e( 'Previous slide', 'abhainn' ); ?>" class="slider__button previous" data-action="previous">❮</button>
 
-	<div class="carousel" aria-live="polite">
+	<div class="slider" aria-live="polite">
 		<?php
 		/**
 		 * As this block uses `<InnerBlocks />` in the editor, the content is essentially equivalent to `the_content`.
@@ -62,7 +62,7 @@ $wrapper_attributes['class'] = implode( ' ', $class_names );
 		?>
 	</div>
 
-	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="carousel__button next" data-action="next">❯</button>
+	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="slider__button next" data-action="next">❯</button>
 
 	<?php if ( $attributes['scrollMarkers'] ) : ?>
 		<div class="scroll-markers is-style-progress" style="--abhainn-progress-duration: <?php echo esc_attr( $timer - 1 ); ?>s;">

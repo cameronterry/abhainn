@@ -1,6 +1,6 @@
 <?php
 /**
- * Markup for the Query Generated Title block.
+ * Markup for the Slide block used within the parent Slider.
  *
  * @package Abhainn
  *
@@ -15,7 +15,7 @@ if ( ! $block instanceof WP_Block ) {
 
 $wrapper_attributes = [
 	'aria-hidden' => 'true', // TODO: the first slide needs to be `false`.
-	'class'       => 'carousel__slide',
+	'class'       => 'slider__slide',
 ];
 
 ?>

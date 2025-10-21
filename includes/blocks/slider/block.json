@@ -1,13 +1,13 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 3,
-  "title": "Carousel",
-  "description": "Display a range of content within a carousel.",
+  "title": "Slider",
+  "description": "Display a range of content within a slider.",
   "textdomain": "abhainn",
-  "name": "abhainn/carousel",
+  "name": "abhainn/slider",
   "icon": "slides",
   "category": "media",
-  "keywords": [ "gallery", "images", "slider" ],
+  "keywords": [ "carousel", "gallery", "images", "slider" ],
   "supports": {
     "align": true,
     "html": false

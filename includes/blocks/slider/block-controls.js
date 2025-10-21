@@ -19,7 +19,7 @@ import {
 } from '@wordpress/icons';
 import { __, sprintf } from '@wordpress/i18n';
 
-const CarouselBlockControls = ( { clientId, onChooseSlide } ) => {
+const SliderBlockControls = ( { clientId, onChooseSlide } ) => {
 	const {
 		slideCount,
 		slides,
@@ -28,13 +28,13 @@ const CarouselBlockControls = ( { clientId, onChooseSlide } ) => {
 
 		return {
 			slideCount: innerBlocks.length,
-			slides: innerBlocks.filter( ( { name } ) => 'abhainn/carousel-item' === name ),
+			slides: innerBlocks.filter( ( { name } ) => 'abhainn/slider-item' === name ),
 		};
 	} );
 	const { insertBlock } = useDispatch( blockEditorStore );
 
 	const addSlide = () => {
-		const block = createBlock( 'abhainn/carousel-item' );
+		const block = createBlock( 'abhainn/slider-item' );
 		insertBlock( block, slideCount, clientId );
 	};
 
@@ -68,4 +68,4 @@ const CarouselBlockControls = ( { clientId, onChooseSlide } ) => {
 	</BlockControls>
 };
 
-export default CarouselBlockControls;
+export default SliderBlockControls;

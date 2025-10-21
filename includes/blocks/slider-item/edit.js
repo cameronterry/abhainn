@@ -16,9 +16,9 @@ import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
  * @param {Function} props.setAttributes    Sets the value for block attributes.
  * @returns {Function} Render the edit screen
  */
-const CarouselItemEdit = () => {
+const SliderItemEdit = () => {
 	const blockProps = useBlockProps( {
-		className: 'carousel__slide',
+		className: 'slider__slide',
 	} );
 
 	/**
@@ -29,4 +29,4 @@ const CarouselItemEdit = () => {
 	</div>
 };
 
-export default CarouselItemEdit;
+export default SliderItemEdit;

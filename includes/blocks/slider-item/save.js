@@ -1,15 +1,13 @@
 /**
  * WordPress dependencies.
  */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { InnerBlocks } from '@wordpress/block-editor';
 
-const CarouselItemSave = () => {
-	const blockProps = useBlockProps.save();
-
+const SliderItemSave = () => {
 	/**
 	 * Note: perhaps not entirely advisable, but basically a slide can be any collection of blocks.
 	 */
 	return <InnerBlocks.Content />;
 };
 
-export default CarouselItemSave;
+export default SliderItemSave;

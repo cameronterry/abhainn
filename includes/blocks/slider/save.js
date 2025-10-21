@@ -3,8 +3,8 @@
  */
 import { InnerBlocks } from '@wordpress/block-editor';
 
-const CarouselSave = () => {
+const SliderSave = () => {
 	return <InnerBlocks.Content />;
 };
 
-export default CarouselSave;
+export default SliderSave;

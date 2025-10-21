@@ -1,20 +1,20 @@
 ( () => {
-	const carouselBlockChangeSlide = ( block, slide ) => {
+	const sliderBlockChangeSlide = ( block, slide ) => {
 		const { current, total } = block.dataset;
 		if ( slide < 0 || slide > total || current === slide ) {
 			return;
 		}
 
-		const carousel = block.querySelector( '.carousel' );
-		const currentSlide = block.querySelector( `div.carousel__slide:nth-child(${current})` );
-		const newSlide = block.querySelector( `div.carousel__slide:nth-child(${slide})` );
-		if ( ! carousel || ! currentSlide || ! newSlide ) {
+		const slider = block.querySelector( '.slider' );
+		const currentSlide = block.querySelector( `div.slider__slide:nth-child(${current})` );
+		const newSlide = block.querySelector( `div.slider__slide:nth-child(${slide})` );
+		if ( ! slider || ! currentSlide || ! newSlide ) {
 			return;
 		}
 
 		block.setAttribute( 'data-current', slide );
 
-		carousel.scrollTo( {
+		slider.scrollTo( {
 			behavior: 'smooth',
 			left: newSlide.offsetLeft,
 		} );
@@ -47,15 +47,15 @@
 		} );
 	};
 
-	const carouselBlocks = document.querySelectorAll( '.wp-block-abhainn-carousel' );
-	if ( ! carouselBlocks ) {
+	const sliderBlocks = document.querySelectorAll( '.wp-block-abhainn-slider' );
+	if ( ! sliderBlocks ) {
 		return;
 	}
 
 	const hasReducedMotion = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
-	carouselBlocks.forEach( ( block ) => {
-		const slidesTotal = block.querySelector( '.carousel' )?.children?.length ?? 0;
+	sliderBlocks.forEach( ( block ) => {
+		const slidesTotal = block.querySelector( '.slider' )?.children?.length ?? 0;
 		if ( 0 === slidesTotal ) {
 			return;
 		}
@@ -73,9 +73,9 @@
 					const current = parseInt( block?.dataset?.current ?? 1, 10 );
 
 					if ( current === slidesTotal ) {
-						carouselBlockChangeSlide( block, 1 );
+						sliderBlockChangeSlide( block, 1 );
 					} else {
-						carouselBlockChangeSlide( block, current + 1 );
+						sliderBlockChangeSlide( block, current + 1 );
 					}
 				}, timer * 1000 );
 			}
@@ -93,15 +93,15 @@
 			}
 
 			if ( 'first' === target.dataset.action ) {
-				carouselBlockChangeSlide( block, 1 );
+				sliderBlockChangeSlide( block, 1 );
 			} else if ( 'last' === target.dataset.action ) {
-				carouselBlockChangeSlide( block, slidesTotal );
+				sliderBlockChangeSlide( block, slidesTotal );
 			} else if ( 'next' === target.dataset.action ) {
-				carouselBlockChangeSlide( block, current + 1 );
+				sliderBlockChangeSlide( block, current + 1 );
 			} else if ( 'previous' === target.dataset.action ) {
-				carouselBlockChangeSlide( block, current - 1 );
+				sliderBlockChangeSlide( block, current - 1 );
 			} else if ( ! isNaN( parseInt( target.dataset.action, 10 ) ) ) {
-				carouselBlockChangeSlide( block, parseInt( target.dataset.action, 10 ) );
+				sliderBlockChangeSlide( block, parseInt( target.dataset.action, 10 ) );
 			}
 		} );
 	} );

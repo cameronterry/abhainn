@@ -11,14 +11,14 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies.
  */
-import CarouselBlockControls from './block-controls';
-import CarouselInspectorControls from './inspector-controls';
+import SliderBlockControls from './block-controls';
+import SliderInspectorControls from './inspector-controls';
 
 /**
  * Constants
  */
 const DEFAULT_BLOCK = {
-	name: 'abhainn/carousel-item',
+	name: 'abhainn/slider-item',
 	innerBlocks: [
 		{
 			name: 'core/paragraph',
@@ -43,13 +43,13 @@ const DEFAULT_BLOCK = {
  * @param {Function} props.setAttributes    Sets the value for block attributes.
  * @returns {Function} Render the edit screen
  */
-const CarouselEdit = ( { attributes, clientId, setAttributes } ) => {
+const SliderEdit = ( { attributes, clientId, setAttributes } ) => {
 	const blockProps = useBlockProps();
 
-	const carouselRef = useRef( null );
+	const sliderRef = useRef( null );
 	const innerBlocksProps = useInnerBlocksProps( {
-		className: 'carousel',
-		ref: carouselRef,
+		className: 'slider',
+		ref: sliderRef,
 	}, {
 		defaultBlock: DEFAULT_BLOCK,
 		directInsert: true,
@@ -57,18 +57,18 @@ const CarouselEdit = ( { attributes, clientId, setAttributes } ) => {
 	} );
 
 	const handleChooseSlide = ( slide ) => {
-		carouselRef.current.scrollTo( {
-			left: carouselRef.current.offsetWidth * slide,
+		sliderRef.current.scrollTo( {
+			left: sliderRef.current.offsetWidth * slide,
 		} );
 	};
 
 	return <div { ...blockProps }>
-		<CarouselBlockControls
+		<SliderBlockControls
 			clientId={ clientId }
 			onChooseSlide={ handleChooseSlide }
 		/>
 
-		<CarouselInspectorControls
+		<SliderInspectorControls
 			attributes={ attributes }
 			setAttribute={ setAttributes }
 		/>
@@ -77,4 +77,4 @@ const CarouselEdit = ( { attributes, clientId, setAttributes } ) => {
 	</div>;
 };
 
-export default CarouselEdit;
+export default SliderEdit;

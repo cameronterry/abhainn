@@ -3,18 +3,18 @@
 	100% { width: 100%; }
 }
 
-.wp-block-abhainn-carousel {
+.wp-block-abhainn-slider {
 	position: relative;
 	overflow: hidden;
 
 	&.no-scrollbar {
 
-		& .carousel {
+		& .slider {
 			scrollbar-width: none;
 		}
 	}
 
-	& .carousel {
+	& .slider {
 		align-items: center;
 		display: flex;
 		overflow-x: auto;
@@ -22,7 +22,7 @@
 		scroll-behavior: smooth;
 	}
 
-	& .carousel__button {
+	& .slider__button {
 		background: rgba(0, 0, 0, 0.5);
 		border: none;
 		color: white;
@@ -43,7 +43,7 @@
 		}
 	}
 
-	& .carousel__slide {
+	& .slider__slide {
 		flex: 0 0 100%;
 		position: relative;
 		scroll-snap-align: start;
