@@ -29,6 +29,7 @@
   },
   "buildEntryPoints": {
     "wp-blocks": "./includes/blocks",
+    "block-editor": "./includes/block-editor/index.js",
     "site-js": "./assets/js/site.js",
     "site-style": "./assets/css/site.css"
   }

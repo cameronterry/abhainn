@@ -15,6 +15,31 @@ use Abhainn\Registerable;
 class Assets implements Registerable {
 
 	/**
+	 * Enqueue scripts and styles for the admin area.
+	 *
+	 * @return void
+	 */
+	public function admin() {
+		$path = ABHAINN_PATH . 'dist/block-editor.asset.php';
+		if ( ! file_exists( $path ) ) {
+			return;
+		}
+
+		$deps = require $path;
+
+		wp_enqueue_script(
+			'abhainn-block-editor',
+			ABHAINN_URI . '/dist/block-editor.js',
+			$deps['dependencies'],
+			$deps['version'],
+			[
+				'in_footer' => true,
+				'strategy'  => 'async',
+			]
+		);
+	}
+
+	/**
 	 * Register the assets.
 	 *
 	 * @return true
@@ -84,6 +109,7 @@ class Assets implements Registerable {
 	 * @return void
 	 */
 	public function register() {
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin' ] );
 		add_action( 'admin_init', [ $this, 'editor_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'site' ] );
 		add_action( 'wp_head', [ $this, 'preload_fonts' ], 5 );
