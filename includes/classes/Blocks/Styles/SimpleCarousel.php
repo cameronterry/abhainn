@@ -6,6 +6,7 @@
  * Related files:
  *  * /styles/blocks/simple-carousel.json
  *  * /assets/css/blocks/styles/simple-carousel.css
+ *  * /includes/block-editor/blocks/simple-carousel/*
  *
  * @package Abhainn
  */
@@ -61,7 +62,11 @@ class SimpleCarousel implements Registerable {
 			return $content;
 		}
 
-		$carousel_style_var = sprintf( '--abhainn-carousel-slide: %d;', count( $block['innerBlocks'] ) );
+		$carousel_style_vars = sprintf(
+			'--abhainn-carousel-slide: %d;--abhainn-carousel-slide-size: %s;',
+			count( $block['innerBlocks'] ),
+			$block['attrs']['slideSize'] ?? '41%' // 41% is the default value.
+		);
 
 		$html_processor = new \WP_HTML_Tag_Processor( $content );
 		$html_processor->next_tag(); // Move to the containing tag.
@@ -76,7 +81,7 @@ class SimpleCarousel implements Registerable {
 		 * assume this code does by prepending the custom variable than work out if the last style has been closed off
 		 * properly.
 		 */
-		$html_processor->set_attribute( 'style', $carousel_style_var . $style_attr );
+		$html_processor->set_attribute( 'style', $carousel_style_vars . $style_attr );
 
 		return $html_processor->get_updated_html();
 	}
