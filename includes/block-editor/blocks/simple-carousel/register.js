@@ -10,7 +10,13 @@ import simpleCarouselSettings from '../../../../styles/blocks/simple-carousel.js
 
 const SimpleCarouselControls = ( settings, name ) => {
 	if ( simpleCarouselSettings.blockTypes.includes( name ) ) {
-		//console.log( settings );
+		settings.attributes = {
+			...settings.attributes,
+			slideSize: {
+				type: 'string',
+				default: '41%',
+			},
+		};
 	}
 
 	return settings;
