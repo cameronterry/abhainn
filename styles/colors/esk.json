@@ -1,0 +1,71 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "Esk",
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "color": "#084DA6",
+          "name": "Primary",
+          "slug": "primary"
+        },
+        {
+          "color": "#FFFFFF",
+          "name": "Primary Contrast",
+          "slug": "primary-contrast"
+        },
+        {
+          "color": "#6D2D7C",
+          "name": "Secondary",
+          "slug": "secondary"
+        },
+        {
+          "color": "var:preset|color|primary-contrast",
+          "name": "Secondary Contrast",
+          "slug": "secondary-contrast"
+        },
+        {
+          "color": "#ACDEF2",
+          "name": "Tertiary",
+          "slug": "tertiary"
+        },
+        {
+          "color": "var:preset|color|primary-contrast",
+          "name": "Tertiary Contrast",
+          "slug": "tertiary-contrast"
+        },
+        {
+          "color": "#406022",
+          "name": "Accent",
+          "slug": "accent"
+        },
+        {
+          "color": "var:preset|color|primary-contrast",
+          "name": "Accent Contrast",
+          "slug": "accent-contrast"
+        },
+        {
+          "color": "#000000",
+          "name": "Text (default)",
+          "slug": "text-default"
+        },
+        {
+          "color": "var:preset|color|primary-contrast",
+          "name": "Background",
+          "slug": "background"
+        },
+        {
+          "color": "var:preset|color|primary-contrast",
+          "name": "Text (Dark)",
+          "slug": "text-dark"
+        },
+        {
+          "color": "#1A4173",
+          "name": "Background (Dark)",
+          "slug": "background-dark"
+        }
+      ]
+    }
+  }
+}
