@@ -26,7 +26,7 @@ const SimpleCarouselBlockEdit = createHigherOrderComponent( ( BlockEdit ) => {
 		/**
 		 * Ignore blocks of a different type and those without the custom style.
 		 */
-		if ( ! simpleCarouselSettings.blockTypes.includes( name ) || ! className.includes( `is-style-${simpleCarouselSettings.slug}` ) ) {
+		if ( ! className || ! simpleCarouselSettings.blockTypes || ! simpleCarouselSettings.blockTypes.includes( name ) || ! className.includes( `is-style-${simpleCarouselSettings.slug}` ) ) {
 			return <BlockEdit { ...props } />;
 		}
 
