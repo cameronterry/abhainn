@@ -65,7 +65,7 @@ $wrapper_attributes['class'] = implode( ' ', $class_names );
 	<button aria-label="<?php esc_attr_e( 'Next slide', 'abhainn' ); ?>" class="slider__button next" data-action="next">❯</button>
 
 	<?php if ( $attributes['scrollMarkers'] ) : ?>
-		<div class="scroll-markers is-style-progress" style="--abhainn-progress-duration: <?php echo esc_attr( $timer - 1 ); ?>s;">
+		<div class="scroll-markers" style="--abhainn-progress-duration: <?php echo esc_attr( $timer - 1 ); ?>s;">
 			<?php
 			for ( $i = 0; $i < $slide_count; $i++ ) :
 				$slide_radio_id = wp_unique_id( $wrapper_attributes['aria-labelledby'] . '--slide-' );

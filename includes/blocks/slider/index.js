@@ -1,7 +1,7 @@
 /**
  * WordPress dependencies
  */
-import { registerBlockType } from '@wordpress/blocks';
+import { registerBlockType, registerBlockStyle } from '@wordpress/blocks';
 
 /**
  * Internal dependencies.
@@ -17,3 +17,9 @@ registerBlockType(
 		save,
 	}
 );
+
+if ( block.blockStyles?.length > 0 ) {
+	block.blockStyles.forEach( ( blockStyle ) => {
+		registerBlockStyle( block.name, blockStyle );
+	} );
+}

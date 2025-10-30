@@ -61,27 +61,6 @@
 		& input[type="radio"] {
 			display: none;
 			transition: all .3s;
-		}
-
-		&.is-style-dots input[type="radio"] {
-
-			&:checked + label {
-				background-color: var(--wp--preset--color--primary);
-				opacity: 1;
-			}
-
-			& + label {
-				background-color: var(--wp--preset--color--text-default);
-				border: none;
-				border-radius: 50%;
-				display: inline-block;
-				height: 20px;
-				opacity: .5;
-				width: 20px;
-			}
-		}
-
-		&.is-style-progress input[type="radio"] {
 
 			&:checked + label {
 
@@ -103,6 +82,29 @@
 				position: relative;
 				width: 50px;
 			}
+		}
+	}
+
+	&.is-style-radio .scroll-markers input[type="radio"] {
+
+		&:checked + label {
+			background-color: var(--wp--preset--color--accent);
+			border-radius: 50%;
+			opacity: 1;
+
+			&::after {
+				display: none;
+			}
+		}
+
+		& + label {
+			background-color: var(--wp--preset--color--text-default);
+			border: none;
+			border-radius: 50%;
+			display: inline-block;
+			height: 20px;
+			opacity: .5;
+			width: 20px;
 		}
 	}
 }

@@ -26,6 +26,17 @@
       "type": "integer"
     }
   },
+  "blockStyles": [
+    {
+      "name": "bars",
+      "label": "Bars",
+      "isDefault": true
+    },
+    {
+      "name": "radio",
+      "label": "Radio"
+    }
+  ],
   "editorStyle": "file:./view.css",
   "editorScript": "file:./index.js",
   "viewScript": "file:./viewScript.js",

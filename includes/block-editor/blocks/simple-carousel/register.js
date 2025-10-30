@@ -8,6 +8,9 @@ import { addFilter } from '@wordpress/hooks';
  */
 import simpleCarouselSettings from '../../../../styles/blocks/simple-carousel.json';
 
+/**
+ * {@link https://developer.wordpress.org/news/2024/08/how-to-extend-a-wordpress-block/}
+ */
 const SimpleCarouselControls = ( settings, name ) => {
 	if ( simpleCarouselSettings.blockTypes.includes( name ) ) {
 		settings.attributes = {
