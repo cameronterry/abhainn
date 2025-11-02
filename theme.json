@@ -3,71 +3,6 @@
   "version": 3,
   "settings": {
     "appearanceTools": true,
-    "color": {
-      "defaultPalette": false,
-      "palette": [
-        {
-          "color": "#0C2C40",
-          "name": "Primary",
-          "slug": "primary"
-        },
-        {
-          "color": "#FFFFFF",
-          "name": "Primary Contrast",
-          "slug": "primary-contrast"
-        },
-        {
-          "color": "#345573",
-          "name": "Secondary",
-          "slug": "secondary"
-        },
-        {
-          "color": "var(--wp--preset--color--primary-contrast)",
-          "name": "Secondary Contrast",
-          "slug": "secondary-contrast"
-        },
-        {
-          "color": "#728EA6",
-          "name": "Tertiary",
-          "slug": "tertiary"
-        },
-        {
-          "color": "#000000",
-          "name": "Tertiary Contrast",
-          "slug": "tertiary-contrast"
-        },
-        {
-          "color": "#F2D091",
-          "name": "Accent",
-          "slug": "accent"
-        },
-        {
-          "color": "#BF9F78",
-          "name": "Accent (Dark)",
-          "slug": "accent-dark"
-        },
-        {
-          "color": "#000000",
-          "name": "Text (default)",
-          "slug": "text-default"
-        },
-        {
-          "color": "var(--wp--preset--color--primary-contrast)",
-          "name": "Background",
-          "slug": "background"
-        },
-        {
-          "color": "var(--wp--preset--color--primary-contrast)",
-          "name": "Text (Dark)",
-          "slug": "text-dark"
-        },
-        {
-          "color": "#0C2C40",
-          "name": "Background (Dark)",
-          "slug": "background-dark"
-        }
-      ]
-    },
     "layout": {
       "contentSize": "42.5rem",
       "wideSize": "80rem"
@@ -76,6 +11,7 @@
       "padding": true
     },
     "typography": {
+      "defaultFontSizes": false,
       "fluid": true,
       "fontFamilies": [
         {
@@ -115,6 +51,59 @@
               "src": [ "file:./dist/fonts/InterVariable-Italic.woff2" ]
             }
           ]
+        }
+      ],
+      "fontSizes": [
+        {
+          "fluid": false,
+          "name": "Small",
+          "size": "0.875rem",
+          "slug": "small"
+        },
+        {
+          "fluid": {
+            "max": "1.125rem",
+            "min": "1rem"
+          },
+          "name": "Medium",
+          "size": "1rem",
+          "slug": "medium"
+        },
+        {
+          "fluid": {
+            "max": "1.375rem",
+            "min": "1.125rem"
+          },
+          "name": "Large",
+          "size": "1.38rem",
+          "slug": "large"
+        },
+        {
+          "fluid": {
+            "max": "2rem",
+            "min": "1.75rem"
+          },
+          "name": "Extra Large",
+          "size": "1.75rem",
+          "slug": "x-large"
+        },
+        {
+          "fluid": {
+            "max": "3rem",
+            "min": "2.15rem"
+          },
+          "name": "Extra Extra Large",
+          "size": "2.15rem",
+          "slug": "xx-large"
+        },
+        {
+          "slug": "super-large",
+          "size": "4.5rem",
+          "name": "Super Large",
+          "fluid": {
+            "min": "2.7rem",
+            "max": "5rem"
+          }
         }
       ]
     },
