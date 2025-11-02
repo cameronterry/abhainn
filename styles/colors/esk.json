@@ -11,19 +11,9 @@
           "slug": "primary"
         },
         {
-          "color": "#FFFFFF",
-          "name": "Primary Contrast",
-          "slug": "primary-contrast"
-        },
-        {
           "color": "#6D2D7C",
           "name": "Secondary",
           "slug": "secondary"
-        },
-        {
-          "color": "var:preset|color|primary-contrast",
-          "name": "Secondary Contrast",
-          "slug": "secondary-contrast"
         },
         {
           "color": "#ACDEF2",
@@ -31,19 +21,9 @@
           "slug": "tertiary"
         },
         {
-          "color": "var:preset|color|primary-contrast",
-          "name": "Tertiary Contrast",
-          "slug": "tertiary-contrast"
-        },
-        {
           "color": "#406022",
           "name": "Accent",
           "slug": "accent"
-        },
-        {
-          "color": "var:preset|color|primary-contrast",
-          "name": "Accent Contrast",
-          "slug": "accent-contrast"
         },
         {
           "color": "#000000",
@@ -51,19 +31,29 @@
           "slug": "text-default"
         },
         {
-          "color": "var:preset|color|primary-contrast",
+          "color": "#FFFFFF",
           "name": "Background",
           "slug": "background"
         },
         {
-          "color": "var:preset|color|primary-contrast",
-          "name": "Text (Dark)",
-          "slug": "text-dark"
+          "color": "#FFFFFF",
+          "name": "Text (for Colours)",
+          "slug": "text-colors"
         },
         {
-          "color": "#1A4173",
-          "name": "Background (Dark)",
-          "slug": "background-dark"
+          "color": "#06397B",
+          "name": "Primary (Background)",
+          "slug": "primary-background"
+        },
+        {
+          "color": "#491E52",
+          "name": "Secondary (Background)",
+          "slug": "secondary-background"
+        },
+        {
+          "color": "#7698A6",
+          "name": "Tertiary (Background)",
+          "slug": "tertiary-background"
         }
       ]
     }
